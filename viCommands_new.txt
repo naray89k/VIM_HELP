@@ -1,0 +1,189 @@
+INSERT MODE COMMANDS:
+=====================
+i ---> insert
+I ---> Insert from starting of a Line
+a ---> append after current position
+A ---> append after the End of Line
+o ---> Insert a line/edit after the Current Line
+O ---> Insert a line/edit before the Current Line.
+cw --> change a word (delete command requires a object/move command. here word)
+cW --> change till next space character
+cb --> change a word starting from current word.
+c$ --> C ---> change till end of line from current cursor position.
+c0 --> change till starting of line from current cursor position. 
+s ---> substitute command to substitute character(deletes character and goes into insert mode)
+S ---> cc ---> substitute command to substitute entire line (deletes the whole content of current line and goes into insert mode)
+~ ---> Changing the case of a letter 
+x ---> delete a character in current position
+
+EDIT COMMANDS ( THESE COMMANDS DONT LEAVE YOU IN EDIT MODE ):
+=============================================================
+dw --> de ---> delete a word (delete command requires a object/move command. here word)
+db --> delete till start of the from current cursor position. 
+dE --> delete a Word (deletes apostrophy characters also)
+d0 --> delete till starting of a line from current cursor position.
+d$ --> D ---> delete till end of a line from current cursor position
+dd --> delete the entire line.
+y ---> copy command (requires a object/move command)
+yy --> copies a line
+yw --> ye ---> copy till end of current word from current cursor position.
+yb --> copy till start of current word from current cursor position. 
+y$ --> delete till end of a line from current cursor position.
+y0 --> delete till starting of a line from current cursor position.
+y^ --> delete till starting of a line from current cursor position.
+p ---> to paste what has copied using yank command(after cursor position).
+P ---> to paste what has copied using yank command(before cursor position).
+u ---> undo the recent change.
+U ---> undoes all edits on a single line, as long as the cursor remains on that line. Once you move off a line, you can no longer use
+J ---> to join 2 lines(current cursor anyware in the present line)
+r ---> replace a single character.
+R ---> replace every character with what you type till esc command.
+Q ---> To Enter into EX command mode.
+
+MOVE COMMANDS:
+==============
+ctrl+F ---> Move one screen forward. Similar to Padedown in windows. 
+k ---> Up one Line
+j ---> down one Line
+h ---> Left 
+l ---> Right
+w ---> move to starting of next Word.
+b ---> move to starting of current Word.
+e ---> move to end of current Word.
+E ---> move to end of current Word irrespective of any special character, stops before space.
+^ ---> move to Start of a line(if there is no Space Character) 
+0 ---> move to start of line
+$ ---> move to end of Line.
+1G --> move to first line of File.
+G ---> move to last line of File.
+ctrl+B ---> Move one screen backward. Similar to Padeup in windows. 
+H ---> move to the top line of the screen.
+M ---> move to the middle line of the screen.
+L ---> move to the last line of the screen.
++ ---> move to first character of the next line.
+- ---> move to first character of the previous line.
+( ---> Move to beginning of current sentence. 
+) ---> Move to beginning of next sentence. 
+{ ---> Move to beginning of current paragraph. 
+} ---> Move to beginning of next paragraph.
+:213 > Move to beginning of 213th line.
+Ctrl+^ ---> To move from one file to another file.
+
+SEARCH COMMANDS:
+===============
+\ ---> Search command which search pattern after current cursor position.
+? ---> Search command which search pattern before current cursor position.
+n ---> moves cursor to the next occurance of search pattern.
+N ---> moves cursor to the previous occurance of search pattern.
+fx --> Find (move cursor to) next occurrence of x in the line, where x stands for any character.
+Fx --> Find (move cursor to) previous occurrence of x in the line.
+tx --> Find (move cursor to) character before next occurrence of x in the line.
+Tx --> Find (move cursor to) character after previous occurrence of x in the line.
+; ---> Repeat previous find command in same direction.
+, ---> Repeat previous find command in opposite direction.
+
+EX COMMANDS:
+===============
+:se nu   	--> sets number to all rows
+:se nonu 	--> removes number to all rows
+:se ic   	--> sets ignorescase for string search
+:se noic 	--> removes ignorecase for string search
+:syntax on 	--> turns on the syntax highlighting(helpful for programming language)
+:syntax off 	--> turns off the syntax highlighting(helpful for programming language)
+:w 		--> Save the current file without closing the file.
+:e! 		--> undo all the changes done in the current session.
+:x		--> Both writes the file and quits (exits) the editor. The file is written only if it has been modified.
+:wq		--> Save and Quit the file.
+:q!		--> Force quit the file.(no matter of any warnings).
+:wq! 		--> Save and Quit the file.(no matter of any warnings).
+:1p		--> to print first Line of File.
+:1,3p		--> To print Lines 1 through 3.
+:24		--> To goto Line 24
+:1s/ln/line	--> To substitute line for ln in line 1.
+:vi 		--> To Enter into vi editor from ex editor.
+:3,18d		--> To Delete lines 3 through 18.
+:160,224m23	--> To Move lines 160 through 224 to follow line 23. (Like delete and put in vi.)
+:23,29co100	--> To Copy lines 23 through 29 and put after line 100. (Like yank and put in vi.)
+:1,10#		--> To display the line numbers from line one to line ten.
+:=		--> To Print the total number of lines.
+:.=		--> To Print the line number of the current line.
+:/pattern/=	--> To Print the line number of the first line that matches pattern.
+:.,$d		--> To Delete from current line to end of file.
+:20,.m$		--> To Move from line 20 through the current line to the end of the file.
+:%d		--> To Delete all the lines in a file.
+:%t$		--> To Copy all lines and place them at the end of the file (making a consecutive duplicate).
+:.,.+20d	--> To Delete from current line through the next 20 lines.
+:226,$m.-2	--> To Move lines 226 through the end of the file to two lines above the current line.
+:.,+20#		--> To Display line numbers from the current line to 20 lines further on in the file.
+		    (In fact, you don't need to type the dot (.) when you use + or -, because the current line is the assumed starting position.)
+:-,+t0		--> To Copy three lines (the line above the cursor through the line below the cursor) and put them at the top of the file.
+:/pattern/d	--> To Delete the next line containing pattern.
+:/pattern/+d	--> To Delete the line below the next line containing pattern. (You could also use +1 instead of + alone.)
+:/ptrn1/,/ptrn2/d > To Delete from the first line containing pattern1 through the first line containing pattern2.
+:.,/ pattern/m23 -> To Take the text from the current line (.) through the first line containing pattern and put it after line 23.
+:100,+5 p	--> To you'll get an error message saying, "First address exceeds second." The reason the command fails is that the second address is calculated relative to the current cursor position (line 1), so your command is really saying this: ":100,6 p"
+:100;+5 p	--> To prints the desired lines. The +5 is now calculated relative to line 100.
+:/pattern/;+10 p -> To the next line containing pattern, plus the 10 lines that follow it
+:g/pattern	--> To Find (move to) the last occurrence of pattern in the file.
+:g/pattern/p	--> To Find and display all lines in the file containing pattern.
+:1,3d | s/thier/their/ --> Delete lines 1 through 3 (leaving you now on the top line of the file); then make a substitution on the current line (which was line 4 before you invoked the ex prompt).
+:1,5 m 10 | g/pattern/nu > Move lines 1 through 5 after line 10, and then display all lines (with numbers) containing pattern.
+:w practice.new --> To save the edited buffer in a file called practice.new
+:230,$w newfile	--> To Save from line 230 to end of file in newfile.
+:.,600w newfile --> To Save from the current line to line 600 in newfile.
+:340,$w >>newfile > To append all or part of the contents of the buffer to an existing file.
+:r filename	--> To insert the contents of filename starting on the line after the cursor position in the file.
+:185r /home/tim/data > To read in the same file and place it after line 185
+:$r /home/tim/data --> To Place the read-in file at the end of the current file.
+:0r /home/tim/data --> To Place the read-in file at the very beginning of the current file.
+:e filename --> You can switch to another file at any time with the ex command
+:e letter   --> This command is to switch to another file.
+:e % 	    --> To represent the current file name.
+:e # 	    --> To represent the Next file name. (vi “remembers” two filenames at a time as the current and alternate filenames % current,# alternate file.
+
+CUT COPY PASTE OPERATION BETWEEN FILES:
+======================================
+STEP-1: (To copy contents from one file to other)
+======
+"f4yy ---> To copy 4 lines of the current file into buffer a
+:w    ---> Save the current file.
+:e <desired File> ---> To move to The Desired file you want to copy.
+"fp   ---> To paste the buffer a in desired file.
+
+STEP-2: (To copy contents from one file to other)
+======
+:160,224ya a  ----> To yank range of characters from one file into buffer a.
+:e <desired File> -> To 
+:pu a         ----> To move to Desired file you want to copy.
+
+GLOBAL REPLACEMENT:
+==================
+:50,100s/old/new/g ---> To replace the string old with new in 50 -- 100 lines.
+:1,$s/old/new/g    ---> To change every occurrence of old to new within the entire file.
+:%s/old/new/g      ---> Same as the previous command.
+:1,30s/his/the/gc  ---> This command will ask for the substitution confirmation.
+
+:g/pattern/s/old/new/g --> This syntax lets you search for a pattern, and then, once you find the line with the pattern, make a substitution on a string different from the pattern. You can think of this as contextsensitive replacement(This is a little complex query).
+
+
+PATTERN MATCHING:
+=================
+MetaCharacters:
+. ---> Matches any single character except a newline.
+* ---> Matches zero or more (as many as there are) of the single character that immediately precedes it.
+.* --> Means “match any number of any character.”
+^ ---> When used at the start of a regular expression, requires that the following regular expression be found at the beginning of the line.
+$ ---> When used at the end of a regular expression, requires that the preceding regular expression be found at the end of the line.
+\ ---> Treats the following special character as an ordinary character.
+[ ]--> Matches any one of the characters enclosed between the brackets.
+\( \) ---> Saves the pattern enclosed between \( and \) into a special holding space, or a “hold buffer.”
+\< \> ---> Matches characters at the beginning (\<) or at the end (\>) of a word
+~ ----> Matches whatever regular expression was used in the last search
+
+
+TOGGLING CASE:
+==============
+g~e ---> Toggle case "HellO" to "hELLo"  FORMAT: with g~ then a movement.
+gUe ---> To change to Uppercase ("HellO" to "HELLO") FORMAT: with gU then a movement.
+gue ---> To change to Lowercase ("HellO" to "hello") Format: with gu then a movement.
+Note: Most metacharacters lose their special meaning inside brackets, so you don’t need to escape them if you want to use them as ordinary characters. Within brackets, the three metacharacters you still need to escape are \ - ].
