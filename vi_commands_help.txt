@@ -120,8 +120,11 @@ EX COMMANDS:
 ----------------------------------------------------------------------------
 NOTE: In fact, you don't need to type the dot (.) when you use + or -, because the current line is the assumed starting position.)
 ----------------------------------------------------------------------------
-:-,+t0		--> To Copy three lines (the line above the cursor through the line below the cursor) and put them at the top of the file.
-:/pattern/d	--> To Delete the next line containing pattern.
+:-,+t0		    --> To Copy three lines (the line above the cursor through the line below the cursor) and put them at the top of the file.
+:g/pattern/d    --> To delete lines which match the pattern
+:g/pattern/-d   --> To delete the line before the pattern(in all occurance)
+:g/pattern/,+2d --> T delete the line where pattern available and 2 lines after that.
+:/pattern/d	    --> To Delete the next line containing pattern.
 :/pattern/+d	--> To Delete the line below the next line containing pattern. (You could also use +1 instead of + alone.)
 :/ptrn1/,/ptrn2/d > To Delete from the first line containing pattern1 through the first line containing pattern2.
 :.,/ pattern/m23 -> To Take the text from the current line (.) through the first line containing pattern and put it after line 23.
