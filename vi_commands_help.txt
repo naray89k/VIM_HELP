@@ -86,33 +86,34 @@ Tx --> Find (move cursor to) character after previous occurrence of x in the lin
 
 EX COMMANDS:
 ===============
+:echo @%    --> To view the current file name.
 :se nu   	--> sets number to all rows
 :se nonu 	--> removes number to all rows
 :se ic   	--> sets ignorescase for string search
 :se noic 	--> removes ignorecase for string search
 :syntax on 	--> turns on the syntax highlighting(helpful for programming language)
-:syntax off 	--> turns off the syntax highlighting(helpful for programming language)
-:w 		--> Save the current file without closing the file.
+:syntax off --> turns off the syntax highlighting(helpful for programming language)
+:w 		    --> Save the current file without closing the file.
 :e! 		--> undo all the changes done in the current session.
-:x		--> Both writes the file and quits (exits) the editor. The file is written only if it has been modified.
-:wq		--> Save and Quit the file.
-:q!		--> Force quit the file.(no matter of any warnings).
+:x		    --> Both writes the file and quits (exits) the editor. The file is written only if it has been modified.
+:wq		    --> Save and Quit the file.
+:q!		    --> Force quit the file.(no matter of any warnings).
 :wq! 		--> Save and Quit the file.(no matter of any warnings).
-:1p		--> to print first Line of File.
+:1p		    --> to print first Line of File.
 :1,3p		--> To print Lines 1 through 3.
-:24		--> To goto Line 24
+:24		    --> To goto Line 24
 :1s/ln/line	--> To substitute line for ln in line 1.
 :vi 		--> To Enter into vi editor from ex editor.
 :3,18d		--> To Delete lines 3 through 18.
 :160,224m23	--> To Move lines 160 through 224 to follow line 23. (Like delete and put in vi.)
 :23,29co100	--> To Copy lines 23 through 29 and put after line 100. (Like yank and put in vi.)
 :1,10#		--> To display the line numbers from line one to line ten.
-:=		--> To Print the total number of lines.
-:.=		--> To Print the line number of the current line.
+:=		    --> To Print the total number of lines.
+:.=		    --> To Print the line number of the current line.
 :/pattern/=	--> To Print the line number of the first line that matches pattern.
 :.,$d		--> To Delete from current line to end of file.
 :20,.m$		--> To Move from line 20 through the current line to the end of the file.
-:%d		--> To Delete all the lines in a file.
+:%d		    --> To Delete all the lines in a file.
 :%t$		--> To Copy all lines and place them at the end of the file (making a consecutive duplicate).
 :.,.+20d	--> To Delete from current line through the next 20 lines.
 :226,$m.-2	--> To Move lines 226 through the end of the file to two lines above the current line.
@@ -120,19 +121,22 @@ EX COMMANDS:
 ----------------------------------------------------------------------------
 NOTE: In fact, you don't need to type the dot (.) when you use + or -, because the current line is the assumed starting position.)
 ----------------------------------------------------------------------------
-:-,+t0		    --> To Copy three lines (the line above the cursor through the line below the cursor) and put them at the top of the file.
-:g/pattern/d    --> To delete lines which match the pattern
-:g/pattern/-d   --> To delete the line before the pattern(in all occurance)
-:g/pattern/,+2d --> T delete the line where pattern available and 2 lines after that.
-:/pattern/d	    --> To Delete the next line containing pattern.
-:/pattern/+d	--> To Delete the line below the next line containing pattern. (You could also use +1 instead of + alone.)
-:/ptrn1/,/ptrn2/d > To Delete from the first line containing pattern1 through the first line containing pattern2.
-:.,/ pattern/m23 -> To Take the text from the current line (.) through the first line containing pattern and put it after line 23.
-:100,+5 p	--> To you'll get an error message saying, "First address exceeds second." The reason the command fails is that the second address is calculated relative to the current cursor position (line 1), so your command is really saying this: ":100,6 p"
-:100;+5 p	--> To prints the desired lines. The +5 is now calculated relative to line 100.
-:/pattern/;+10 p -> To the next line containing pattern, plus the 10 lines that follow it
-:g/pattern	--> To Find (move to) the last occurrence of pattern in the file.
-:g/pattern/p	--> To Find and display all lines in the file containing pattern.
+:-,+t0		        --> To Copy three lines (the line above the cursor through the line below the cursor) and put them at the top of the file.
+:%s/\n\{3,}/\r\r/e  --> To delete multiple(two) empty lines into only one single empty line.
+:g/pattern/d        --> To delete lines which match the pattern
+:g/pattern/-d       --> To delete the line before the pattern(in all occurance)
+:g/pattern/,+2d     --> T delete the line where pattern available and 2 lines after that.
+:/pattern/d	        --> To Delete the next line containing pattern.
+:/pattern/+d	    --> To Delete the line below the next line containing pattern. (You could also use +1 instead of + alone.)
+:/ptrn1/,/ptrn2/d   --> To Delete from the first line containing pattern1 through the first line containing pattern2.
+:.,/ pattern/m23    --> To Take the text from the current line (.) through the first line containing pattern and put it after line 23.
+:100,+5 p	        --> To you'll get an error message saying, "First address exceeds second." 
+                           The reason the command fails is that the second address is calculated relative to the current cursor position (line 1), 
+                           so your command is really saying this: ":100,6 p"
+:100;+5 p	        --> To prints the desired lines. The +5 is now calculated relative to line 100.
+:/pattern/;+10 p    --> To the next line containing pattern, plus the 10 lines that follow it
+:g/pattern	        --> To Find (move to) the last occurrence of pattern in the file.
+:g/pattern/p	    --> To Find and display all lines in the file containing pattern.
 :1,3d | s/thier/their/ --> Delete lines 1 through 3 (leaving you now on the top line of the file); then make a substitution on the current line (which was line 4 before you invoked the ex prompt).
 :1,5 m 10 | g/pattern/nu > Move lines 1 through 5 after line 10, and then display all lines (with numbers) containing pattern.
 :w practice.new --> To save the edited buffer in a file called practice.new

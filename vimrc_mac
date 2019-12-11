@@ -1,0 +1,109 @@
+" ENCODING
+set encoding=utf-8
+
+" VUNDLE SETTINGS
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'Valloric/YouCompleteMe'
+
+"Bundle 'Valloric/YouCompleteMe'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" Configuration file for vim
+set modelines=0		" CVE-2007-2438
+
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=2		" more powerful backspacing
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+let skip_defaults_vim=1
+
+
+" PERSONAL SETTINGS
+
+syntax on
+
+" SEARCH SETTINGS
+set hlsearch        " highlight search results
+set ignorecase      " Do case insensitive matching
+set smartcase       " Do smart case matching...unless capital letters are used
+set incsearch       " Incremental search
+set autowrite       " Automatically save before commands like :next and :make
+set hidden      	" Hide buffers when they are abandoned
+"set mouse=a        " Enable mouse usage (all modes)
+set number          " Set line numbers for each line
+
+"EDIT SETTINGS
+set nojoinspaces        " no extra space after '.' when joining lines
+set tabstop=4       	" use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4        " number of spaces to use for auto indent
+set expandtab
+set autoindent          " turns auto indent on
+set smartindent         " does the right indent (mostly) in programs
+set fileformat=unix
+
+" DISPLAY SETTINGS
+set showcmd         " Show (partial) command in status line.
+set showmatch       " Show matching brackets.
+set showmode       " show insert/replace/visual mode
+set ruler           " show the cursor position all the time
+
+" ColorScheme
+"set t_Co=256
+colorscheme delek
+"colorscheme default
+
+
+" SETTINGS FOR SPLIT WINDOW
+set splitbelow
+set splitright
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" PYTHON SETTINGS
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Python related settings
+let python_highlight_all=1
+syntax on
